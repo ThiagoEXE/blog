@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Models\ModelBook;
+use App\Models\ModelBook;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,12 +20,12 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-       //dd($this->objUser->find(3)->relBooks); //buscando livro do id 3
+    public function index(){
 
-       dd($this->objBook->find(3));
-       //return $relbooks;
+        $book = $this->objBook->all()->sortBy('title');
+        return view('index', compact('book'));
+       //dd($this->objUser->find(6));
+
 
     }
 
